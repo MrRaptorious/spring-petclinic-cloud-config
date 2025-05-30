@@ -24,6 +24,12 @@ spring:
             - Path=/api/visit/**
           filters:
             - StripPrefix=2
+        - id: invoices-service
+          uri: lb:http://invoices-service
+          predicates:
+            - Path=/api/invoice/**
+          filters:
+            - StripPrefix=2
         - id: customers-service
           uri: lb:http://customers-service
           predicates:
